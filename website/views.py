@@ -52,7 +52,7 @@ def register_user(request):
     
     return render(request,'register.html',{'form':form})
 
-def update_record(request,pk):
+def view_record(request,pk):
     if request.user.is_authenticated:
         customer_record = Records.objects.get(id=pk)
         return render(request,'record.html',{'customer_record': customer_record})
@@ -84,5 +84,18 @@ def add_record(request):
     else:
         messages.success(request,"You need to be logged in to do that.")
         return redirect('home')
-
+    
+def update_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Records.objects.get(id=pk)
+        form = AddRecordForm(request.POST or None, instance=current_record)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Record has been updated.")
+            return redirect('home')
+        else:
+            return render(request, 'update.html', {'form': form})
+    else:
+        messages.success(request,"You need to be logged in to do that.")
+        return redirect('home')
 

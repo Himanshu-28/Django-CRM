@@ -20,7 +20,7 @@
                 <tbody>
                     {% for record in records%}
                   <tr>
-                    <th scope="row"> <a href="{% url 'update' record.id %}">{{ record.id }}</a></th>
+                    <th scope="row"> <a href="{% url 'view' record.id %}">{{ record.id }}</a></th>
                     <td>{{ record.first_name }} {{ record.last_name }}</td>
                     <td>{{ record.email }}</td>
                     <td>{{ record.phone }}</td>

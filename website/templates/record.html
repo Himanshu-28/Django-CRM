@@ -1,72 +1,77 @@
 {% extends 'base.html' %}
 {% block content%}
 
-<div class="col-md-6 offset-md-6">
+<div class="row">
+    <div class=col-1></div>
+        <div class=col-10>
+            <div class="col-auto mb-3">
     
-    <br>
+            <br>
 
-    <div class="card mx-auto">
-        <div class="card-header">
-          <p class="h2"> {{ customer_record.first_name }} {{customer_record.last_name}}</p>
+            <div class="card">
+                <div class="card-header">
+                    <p class="h2"> {{ customer_record.first_name }} {{customer_record.last_name}}</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <p class="h4">
+                            <strong>
+                                Email: 
+                            </strong>
+                            {{ customer_record.email }}
+                        </p>
+                    </p>
+                    <p class="card-text">
+                        <p class="h4">
+                            <strong>
+                                Phone No.: 
+                            </strong>
+                            {{ customer_record.phone }}
+                        </p>
+                    </p>
+                    <p class="card-text">
+                        <p class="h4">
+                            <strong>
+                                Address: 
+                            </strong>
+                            {{ customer_record.address }}
+                        </p>
+                    </p>
+                    <p class="card-text">
+                        <p class="h4">
+                            <strong>
+                                City: 
+                            </strong>
+                            {{ customer_record.city }}
+                        </p>
+                    </p>
+                    <p class="card-text">
+                        <p class="h4">
+                            <strong>
+                                State: 
+                            </strong>
+                            {{ customer_record.state }}
+                        </p>
+                    </p>
+                    <p class="card-text">
+                        <p class="h4">
+                            <strong>
+                                Zipcode: 
+                            </strong>
+                            {{ customer_record.zipcode }}
+                        </p>
+                    </p>
+                </div>
+             </div>
+
+            <br><br>
+
+            <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'delete' customer_record.id %}" class="btn btn-danger">Delete</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'update' customer_record.id %}" class="btn btn-primary">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
         </div>
-        <div class="card-body">
-          <p class="card-text">
-            <p class="h4">
-            <strong>
-                Email: 
-            </strong>
-            {{ customer_record.email }}
-            </p>
-          </p>
-          <p class="card-text">
-            <p class="h4">
-            <strong>
-                Phone No.: 
-            </strong>
-            {{ customer_record.phone }}
-            </p>
-          </p>
-          <p class="card-text">
-            <p class="h4">
-            <strong>
-                Address: 
-            </strong>
-            {{ customer_record.address }}
-            </p>
-          </p>
-          <p class="card-text">
-            <p class="h4">
-            <strong>
-                City: 
-            </strong>
-            {{ customer_record.city }}
-            </p>
-          </p>
-          <p class="card-text">
-            <p class="h4">
-            <strong>
-                State: 
-            </strong>
-            {{ customer_record.state }}
-            </p>
-          </p>
-          <p class="card-text">
-            <p class="h4">
-            <strong>
-                Zipcode: 
-            </strong>
-            {{ customer_record.zipcode }}
-            </p>
-          </p>
-        </div>
-      </div>
-
-      <br><br>
-
-      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" class="btn btn-danger">Delete</a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="#" class="btn btn-primary">Update</a>&nbsp;&nbsp;&nbsp;&nbsp;
-
+    </div>
 </div>
 
 {% endblock %}
